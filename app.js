@@ -3,16 +3,20 @@ const path = require('path');
 const app = express();
 const port = 8080;
 
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Define the root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html')); // Assuming you have an index.html file in the 'public' directory
+    res.send('Welcome to the Home Page');
 });
 
+// Define the '/about' route
 app.get('/about', (req, res) => {
     res.send('THIS IS CSC 314 CLOUD COMPUTING DEVOPS; CI-CD PIPELINE CREATED WITH AWS. THIS PAGE INDICATES SUCCESS.  MOFUNANYA CHRISTOPHER ----------------- VUG/CSC/21/5659');
 });
 
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
