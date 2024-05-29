@@ -8,72 +8,91 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f3f3f3;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
         .navbar {
-            background-color: #006400; /* Dark Green */
+            background-color: #1f1f1f;
             width: 100%;
             overflow: hidden;
             position: fixed;
             top: 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 2px -2px gray;
         }
         .navbar a {
-            float: left;
-            display: block;
             color: #ffffff;
-            text-align: center;
             padding: 14px 20px;
             text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
         .navbar a:hover {
             background-color: #ffffff;
-            color: #006400; /* Dark Green */
+            color: #1f1f1f;
         }
         .container {
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #1f1f1f;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             width: 90%;
             max-width: 400px;
-            margin-top: 60px; /* Adjust for navbar height */
+            margin-top: 80px;
+            transition: background-color 0.3s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
         }
         h1 {
-            color: #006400; /* Dark Green */
+            color: #32cd32;
             text-align: center;
+            margin-bottom: 20px;
         }
         .form-group {
             margin-bottom: 15px;
         }
         .form-group label {
             display: block;
-            color: #006400; /* Dark Green */
+            color: #32cd32;
             margin-bottom: 5px;
         }
         .form-group input, .form-group select {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
+            padding: 10px;
+            border: 1px solid #444444;
             border-radius: 4px;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #32cd32;
+            outline: none;
         }
         .form-group input[type="submit"] {
-            background-color: #32cd32; /* Lime Green */
-            color: #fff;
+            background-color: #32cd32;
+            color: #ffffff;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
         }
         .form-group input[type="submit"]:hover {
-            background-color: #006400; /* Dark Green */
+            background-color: #28a745;
         }
         .message {
             margin-top: 20px;
-            color: green;
+            color: #32cd32;
             text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -125,7 +144,7 @@
             const level = document.getElementById('level').value;
             
             const messageDiv = document.getElementById('message');
-            messageDiv.textContent = Thank you, ${fullName}, for your payment. A confirmation has been sent to ${email}.;
+            messageDiv.textContent = `Thank you, ${fullName}, for your payment. A confirmation has been sent to ${email}.`;
             
             document.getElementById('duePaymentForm').reset();
         });
